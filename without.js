@@ -1,28 +1,14 @@
-const assertArraysEqual = function(array1, array2) {
-  let equal = true;
-  let actual = array1;
-  let expected = array2;
+const assertArraysEqual = function(arrayA, arrayB) {
+  const resultEq = eqArrays(arrayA, arrayB);
 
-  if (array1.length === array2.length) {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] === array2[i]) {
-        equal = true;
-      } else {
-        equal = false;
-      }
-    }
+  if (resultEq) {
+    console.log(`${String.fromCodePoint(0x2714)} Assertion Passed: ${arrayA} === ${arrayB}`);
   } else {
-    equal = false;
-  }
-
-  if (equal === true) {
-    console.log(`${String.fromCodePoint(0x2714)} Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`${String.fromCodePoint(0x274C)} Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`${String.fromCodePoint(0x274C)} Assertion Failed: ${arrayA} !== ${arrayB}`);
   }
 };
 
-/*const eqArrays = function(array1, array2) {
+const eqArrays = function(array1, array2) {
   let equal = true;
   if (array1.length === array2.length) {
     for (let i = 0; i < array1.length; i++) {
@@ -30,6 +16,7 @@ const assertArraysEqual = function(array1, array2) {
         equal = true;
       } else {
         equal = false;
+        break;
       }
     }
   } else {
@@ -37,28 +24,31 @@ const assertArraysEqual = function(array1, array2) {
   }
   return equal;
 };
-*/
+
 
 const without = function(sourceArray, itemsToRemove) {
   let result = [];
   let equalValue = false;
 
+  const equalArrays = eqArrays(sourceArray, itemsToRemove);
 
-  for (let i = 0; i < sourceArray.length; i++) {
-    for (let j = 0; j < itemsToRemove.length; j++) {
-      if (sourceArray[i] === itemsToRemove[j]) {
-        equalValue = true;
-        break;
-      } else {
-        equalValue = false;
+  if (equalArrays === true) {
+    return result;
+  } else {
+    for (let i = 0; i < sourceArray.length; i++) {
+      for (let j = 0; j < itemsToRemove.length; j++) {
+        if (sourceArray[i] === itemsToRemove[j]) {
+          equalValue = true;
+          break;
+        } else {
+          equalValue = false;
+        }
+      }
+      if (equalValue === false) {
+        result.push(sourceArray[i]);
       }
     }
-    if (equalValue === false) {
-      result.push(sourceArray[i]);
-    }
-    
   }
-
   return result;
 };
 
