@@ -34,10 +34,7 @@ const eqObjects = function(object1, object2) {
     for (const element in object1) {
       if (Array.isArray(object1[element]) && Array.isArray(object2[element])) {
         result = eqArrays(object1[element], object2[element]);
-        console.log(`result eqArrays = ${result}`);
       } else {
-        console.log(`object1[${element}] = ${object1[element]}`);
-        console.log(`object2[${element}] = ${object2[element]}`);
         if (object1[element] === object2[element]) {
           result = true;
         } else {
