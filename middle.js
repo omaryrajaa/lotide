@@ -1,29 +1,4 @@
-const assertArraysEqual = function(arrayA, arrayB) {
-  const resultEq = eqArrays(arrayA, arrayB);
 
-  if (resultEq) {
-    console.log(`${String.fromCodePoint(0x2714)} Assertion Passed: ${arrayA} === ${arrayB}`);
-  } else {
-    console.log(`${String.fromCodePoint(0x274C)} Assertion Failed: ${arrayA} !== ${arrayB}`);
-  }
-};
-
-const eqArrays = function(array1, array2) {
-  let equal = true;
-  if (array1.length === array2.length) {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] === array2[i]) {
-        equal = true;
-      } else {
-        equal = false;
-        break;
-      }
-    }
-  } else {
-    equal = false;
-  }
-  return equal;
-};
 
 const middle = function(array) {
   
@@ -46,9 +21,4 @@ const middle = function(array) {
   return middleElemets;
 };
 
-assertArraysEqual(middle([1]), []);
-assertArraysEqual(middle([1, 2]), []);
-assertArraysEqual(middle([1, 2, 3]), [2]);
-assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
-assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+module.exports = middle;
