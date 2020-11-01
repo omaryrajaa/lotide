@@ -4,8 +4,8 @@ const assertEqual = require('../assertEqual');
 
 //tests
 const words = ["Yo Yo", "Lighthouse", "Labs"];
-const results = tail(words); 
-assertEqual(words.length, 3); 
+const results = tail(words);
+assertEqual(words.length, 3);
 assertEqual(results.length, 2);
 
 

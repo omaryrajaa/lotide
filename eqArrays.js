@@ -1,12 +1,4 @@
-// FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`${String.fromCodePoint(0x2714)} Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`${String.fromCodePoint(0x274C)} Assertion Failed: ${actual} !== ${expected}`);
-  }
 
-};
 
 const eqArrays = function(array1, array2) {
   let equal = true;
@@ -25,13 +17,7 @@ const eqArrays = function(array1, array2) {
   return equal;
 };
 
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
-console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
+module.exports = eqArrays;
 
-console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
-console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
 
-assertEqual(eqArrays([1, 2, 3], [1, 2]), true);
-assertEqual(eqArrays([], []), true);
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 
